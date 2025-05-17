@@ -30,7 +30,8 @@
     "sass": "^1.85.1",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.0",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "vite-plugin-svgr": "^4.3.0"
   },
   "browserslist": {
     "production": [
