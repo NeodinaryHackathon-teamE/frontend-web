@@ -1,11 +1,21 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import autoprefixer from 'autoprefixer';
-import svgr from 'vite-plugin-svgr';
-import path from 'node:path';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import autoprefixer from "autoprefixer";
+import svgr from "vite-plugin-svgr";
+import path from "node:path";
 
 export default defineConfig({
   plugins: [react(), svgr()],
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://3.37.144.218:8080",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""), // /api 빼줌
+      },
+    },
+    open: true,
+  },
   css: {
     postcss: {
       plugins: [autoprefixer()],
@@ -13,10 +23,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      "@": path.resolve(__dirname, "src"),
     },
   },
-  server: {
-    open: true,
-  },
+  // server: {
+  //   open: true,
+  // },
 });

@@ -25,12 +25,14 @@ import Badge from "@/components/Badge";
 import reportedStyles from "@/components/BottomSheetScreen/ReportedScreen.module.scss";
 import LoginScreen from "@/components/BottomSheetScreen/LoginScreen";
 import SignupScreen from "@/components/BottomSheetScreen/SignupScreen";
+import ReportScreen from "@/components/BottomSheetScreen/ReportScreen";
 
 const demoScreens = [
   { name: "main", title: "메인", component: MainScreen },
   { name: "detail", title: "상세", component: ReportedScreen },
   { name: "login", title: "로그인", component: LoginScreen },
   { name: "signup", title: "회원가입", component: SignupScreen },
+  { name: "report", title: "제보글 작성", component: ReportScreen },
 ];
 type PlaceCardData = (typeof placeCardData)[number];
 const HomePage = () => {
@@ -99,7 +101,14 @@ const HomePage = () => {
         <img src={GPS} alt="gps" />
       </Button>
       <LocationButton />
-      <Button iconOnly>
+      <Button
+        iconOnly
+        onClick={() => {
+          if (!isOpen) open();
+          setSelectedCard(null);
+          push("report");
+        }}
+      >
         <img src={Report} alt="report" />
       </Button>
       <Button
