@@ -1,0 +1,28 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+
+  background-color: var(--semantic-brand-regular); // 비활성화 배경
+  color: var(--sementic-brand-strong);
+  font-size: 16px;
+  font-weight: 500;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+.liked {
+  background-color: var(--sementic-brand-strong) !important; // 활성화 초록 배경
+  color: var(--background-fill-static) !important; // 흰 글씨
+}
