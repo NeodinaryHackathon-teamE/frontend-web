@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "@/pages/HomePage";
-import GoogleMap from "@/components/Map/GoogleMap";
+import Map from "@/components/Map/Map";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <GoogleMap />
+      <Map />
       <main className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />
