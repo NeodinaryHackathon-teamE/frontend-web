@@ -21,4 +21,6 @@ services:
       environment:
           BE_HOST: "teame-be"
           BE_PORT: "8080"
+      depends_on:
+        - spring-boot-app
 
