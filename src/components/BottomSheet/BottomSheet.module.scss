@@ -1,0 +1,79 @@
+@use "@/scss/utils/mixins" as *;
+
+.container {
+    &.dimmed {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--sementic-dim-strong);
+        z-index: 200;
+    }
+}
+
+.sheet {
+    position: fixed;
+    left: 0;
+    left: env(safe-area-inset-left);
+    right: 0;
+    right: env(safe-area-inset-right);
+    bottom: 0;
+    bottom: env(safe-area-inset-bottom);
+    padding-top: 10px;
+    border-radius: 16px 16px 0 0;
+    background-color: var(--background-fill-static);
+    z-index: 100;
+
+    .divider {
+        text-align: center;
+
+        svg {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    .title {
+        display: flex;
+        padding: 13px 20px;
+        align-items: center;
+
+        &-text {
+            display: block;
+            flex: 1 1 auto;
+            min-width: 0;
+            font-size: 24px;
+            line-height: 34px;
+
+            @include ellipsis;
+        }
+    }
+
+    .back {
+        @include reset-button;
+
+        flex: 0 0 auto;
+        order: -1;
+        margin-right: 8px;
+        line-height: 1px;
+    }
+
+    .close {
+        @include reset-button;
+
+        flex: 0 0 auto;
+        line-height: 1px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .bottom-sheet {
+        .back,
+        .close {
+            svg {
+                fill: #fff
+            }
+        }
+    }
+}

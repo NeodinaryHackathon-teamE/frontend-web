@@ -1,0 +1,66 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  border: none;
+  backdrop-filter: blur(8px);
+
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border 0.2s;
+
+  // 크기별
+  &--large {
+    padding: 16px;
+    font-size: 16px;
+    height: 56px;
+    border-radius: 12px;
+    gap: 4px;
+  }
+
+  &--medium {
+    padding: 12px;
+    font-size: 14px;
+    height: 44px;
+    min-width: 46px;
+    gap: 2px;
+    border-radius: 8px;
+  }
+
+  &--small {
+    padding: 10px;
+    font-size: 12px;
+    height: 38px;
+    gap: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.32;
+    background-color: rgba(#a0ad99, 0.08);
+    color: #000;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  &--icon {
+    width: 56px;
+    height: 56px;
+    min-width: 44px;
+    padding: 16px;
+    border-radius: 12px;
+    gap: 4px;
+    background-color: var(--background-fill-interactive);
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
