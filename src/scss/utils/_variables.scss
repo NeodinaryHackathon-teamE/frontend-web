@@ -1,0 +1,144 @@
+$color-brand-white-2: rgba(#EDF2EB, 0.02);
+$color-brand-white-4: rgba(#EDF2EB, 0.04);
+$color-brand-white-8: rgba(#EDF2EB, 0.08);
+$color-brand-white-12: rgba(#EDF2EB, 0.12);
+$color-brand-white-16: rgba(#EDF2EB, 0.16);
+$color-brand-white-40: rgba(#EDF2EB, 0.4);
+$color-brand-white-60: rgba(#EDF2EB, 0.6);
+$color-brand-white-80: rgba(#EDF2EB, 0.8);
+$color-brand-white-100: #EDF2EB;
+
+$color-brand-grey-8: rgba(#A0AD99, 0.08);
+$color-brand-grey-12: rgba(#A0AD99, 0.12);
+$color-brand-grey-16: rgba(#A0AD99, 0.16);
+$color-brand-grey-20: rgba(#A0AD99, 0.2);
+
+$color-brand-black-8: rgba(#24331D, 0.08);
+$color-brand-black-12: rgba(#24331D, 0.12);
+$color-brand-black-20: #rgba(#24331D, 0.20);
+$color-brand-black-40: rgba(#24331D, 0.4);
+$color-brand-black-60: rgba(#24331D, 0.6);
+$color-brand-black-80: rgba(#24331D, 0.8);
+$color-brand-black-100: #24331D;
+
+$color-brand-core-8: rgba(#467A2C, 0.08);
+$color-brand-core-12: rgba(#467A2C, 0.12);
+$color-brand-core-100: #467A2C;
+
+$color-brand-solid-1: #0C0D0B;
+$color-brand-solid-2: #111210;
+$color-brand-solid-2-5: rgba(#111210, 0.08);
+$color-brand-solid-4: #121411;
+$color-brand-solid-5: #F4F7F2;
+
+$color-system-white-80: rgba(#FFFFFF, 0.8);
+$color-system-white-100: #FFFFFF;
+
+$color-system-green-8: rgba(#16B874, 0.08);
+$color-system-green-12: rgba(#16B874, 0.12);
+$color-system-green-100: #16B874;
+
+$color-system-yellow-8: rgba(#FFBF0F, 0.08);
+$color-system-yellow-12: rgba(#FFBF0F, 0.12);
+$color-system-yellow-100: #FFBF0F;
+
+$color-system-red-8: rgba(#FF244B, 0.08);
+$color-system-red-12: rgba(#FF244B, 0.12);
+$color-system-red-100: #FF244B;
+
+$color-system-black-12: rgba(#000000, 0.12);
+$color-system-black-16: rgba(#000000, 0.16);
+$color-system-black-24: rgba(#000000, 0.24);
+$color-system-black-32: rgba(#000000, 0.32);
+
+:root {
+    --background-root-regular: #{$color-system-white-100};
+    --background-root-strong: #{$color-brand-solid-5};
+
+    --background-fill-regular: #{$color-brand-grey-8};
+    --background-fill-strong: #{$color-brand-grey-12};
+    --background-fill-static: #{$color-system-white-100};
+    --background-fill-static-translucent: #{$color-system-white-80};
+    --background-fill-interactive: #{$color-system-white-80};
+    --background-fill-inverted: #{$color-brand-solid-4};
+
+    --background-state-hover: #{$color-brand-black-8};
+    --background-state-focussed: #{$color-brand-grey-12};
+    --background-state-pressed: #{$color-brand-black-12};
+
+    --border-divider-regular: #{$color-brand-grey-20};
+    --border-divider-strong: #{$color-brand-black-100};
+
+    --border-outline-regular: #{$color-brand-grey-16};
+    --border-outline-strong: #{$color-brand-black-100};
+
+    --content-base: #{$color-brand-black-100};
+    --content-additivie: #{$color-brand-black-80};
+    --content-assistive: #{$color-brand-black-60};
+    --content-disabled: #{$color-brand-black-40};
+    --content-inverted: #{$color-brand-white-100};
+    --content-elevated: #{$color-system-white-100};
+
+    --sementic-brand-regular: #{$color-brand-core-8};
+    --sementic-brand-strong: #{$color-brand-core-100};
+
+    --sementic-successs-regular: #{$color-system-green-8};
+    --sementic-successs-strong: #{$color-system-green-100};
+
+    --sementic-warning-regular: #{$color-system-yellow-8};
+    --sementic-warning-strong: #{$color-system-yellow-100};
+
+    --sementic-danger-regular: #{$color-system-red-8};
+    --sementic-danger-strong: #{$color-system-red-100};
+
+    --sementic-dim-weak: #{$color-brand-black-8};
+    --sementic-dim-regular: #{$color-brand-black-12};
+    --sementic-dim-strong: #{$color-brand-black-20};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-root-regular: #{$color-brand-solid-2};
+        --background-root-strong: #{$color-brand-solid-1};
+
+        --background-fill-regular: #{$color-brand-white-2};
+        --background-fill-strong: #{$color-brand-white-4};
+        --background-fill-static: #{$color-brand-solid-2};
+        --background-fill-static-translucent: #{$color-brand-solid-2-5};
+        --background-fill-interactive: #{$color-brand-white-4};
+        --background-fill-inverted: #{$color-brand-white-100};
+
+        --background-state-hover: #{$color-brand-white-8};
+        --background-state-focussed: #{$color-brand-white-12};
+        --background-state-pressed: #{$color-brand-white-16};
+
+        --border-divider-regular: #{$color-brand-white-8};
+        --border-divider-strong: #{$color-brand-white-100};
+
+        --border-outline-regular: #{$color-brand-white-4};
+        --border-outline-strong: #{$color-brand-black-100};
+
+        --content-base: #{$color-brand-white-100};
+        --content-additivie: #{$color-brand-white-80};
+        --content-assistive: #{$color-brand-white-60};
+        --content-disabled: #{$color-brand-white-40};
+        --content-inverted: #{$color-brand-black-100};
+        --content-elevated: #{$color-system-white-100};
+
+        --sementic-brand-regular: #{$color-brand-core-12};
+        --sementic-brand-strong: #{$color-brand-core-100};
+
+        --sementic-successs-regular: #{$color-system-green-12};
+        --sementic-successs-strong: #{$color-system-green-100};
+
+        --sementic-warning-regular: #{$color-system-yellow-12};
+        --sementic-warning-strong: #{$color-system-yellow-100};
+
+        --sementic-danger-regular: #{$color-system-red-12};
+        --sementic-danger-strong: #{$color-system-red-100};
+
+        --sementic-dim-weak: #{$color-system-black-12};
+        --sementic-dim-regular: #{$color-system-black-16};
+        --sementic-dim-strong: #{$color-system-black-24};
+    }
+}
