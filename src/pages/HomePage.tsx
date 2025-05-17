@@ -19,8 +19,23 @@ import LocationButton from "@/components/LocationButton";
 import CloseIcon from "@/assets/close.svg";
 import Chip from "@/components/Chip";
 
+import "./HomePage.scss";
+import { useBottomSheetStack } from "@/hooks/useBottomSheetStack";
+import MainScreen from "@/components/BottomSheetScreen/MainScreen";
+import ReportedScreen from "@/components/BottomSheetScreen/ReportedScreen";
+
+const demoScreens = [
+  { name: "main", title: "메인", component: MainScreen },
+  { name: "detail", title: "상세", component: ReportedScreen },
+];
+
 const HomePage = () => {
-  const { isOpen, open, close } = useBottomSheet();
+  const { isOpen, open, close, push, pop, stack } = useBottomSheetStack();
+
+  const current = stack[stack.length - 1];
+  const canGoBack = stack.length > 1;
+  const activeScreen = demoScreens.find((screen) => screen.name === current);
+  const ScreenComponent = activeScreen?.component;
 
   return (
     <div className="home-page">
@@ -53,10 +68,14 @@ const HomePage = () => {
         <SearchInput />
       </div>
       <button onClick={open}>바텀 시트 열기</button>
-      <BottomSheet isOpen={isOpen} onClose={close}>
-        <h2>바텀 시트</h2>
-        <p>내용을 여기에 넣으세요.</p>
-        <button onClick={close}>닫기</button>
+      <BottomSheet
+        isOpen={isOpen}
+        onClose={close}
+        onBack={canGoBack ? pop : undefined}
+        title={activeScreen?.title}
+        canGoBack={canGoBack}
+      >
+        {ScreenComponent && <ScreenComponent push={push} />}
       </BottomSheet>
       <Button iconOnly>
         <img src={GPS} alt="gps" />
