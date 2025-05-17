@@ -1,0 +1,133 @@
+@use "sass:map";
+
+@mixin clear {
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+}
+
+@mixin reset-button {
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+@mixin ellipsis($lines: 1) {
+    @if ($lines ==1) {
+        max-width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    @else {
+        display: block;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+@mixin unellipsis($lines: 1) {
+    @if ($lines == 1) {
+        max-width: none;
+        white-space: normal;
+    } @else {
+        display: initial;
+        max-height: none;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: none;
+        -webkit-box-orient: inline-axis;
+    }
+
+    overflow: visible;
+    text-overflow: clip;
+}
+
+@mixin blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+@mixin unblind {
+    position: static;
+    clip: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+}
+
+@mixin placeholder-color($placeholder-color: #95999c, $font-weight: normal) {
+    &::-webkit-input-placeholder {
+        font-weight: $font-weight;
+        color: $placeholder-color;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        font-weight: $font-weight;
+        color: $placeholder-color;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        font-weight: $font-weight;
+        color: $placeholder-color;
+        opacity: 1;
+    }
+
+    &:-moz-placeholder {
+        font-weight: $font-weight;
+        color: $placeholder-color;
+        opacity: 1;
+    }
+}
+
+@mixin env($attr: left, $direction: left, $addition: 0) {
+    #{$attr}: #{$addition}px;
+    @supports (left: env(safe-area-inset-left)) {
+        #{$attr}: calc(constant(safe-area-inset-#{$direction}) + (#{$addition} * 1px) );
+        #{$attr}: calc(env(safe-area-inset-#{$direction}) + (#{$addition} * 1px));
+    }
+}
+
+@mixin mq-height($condition){
+    @media screen and (max-height: $condition) {
+        @content;
+    }
+}
+
+@mixin remove-scroll($direction) {
+    @if $direction == x {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    @else if $direction == y {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    @else {
+        overflow: auto;
+    }
+
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.blind {
+    @include blind;
+}

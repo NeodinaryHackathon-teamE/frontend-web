@@ -1,0 +1,15 @@
+.home-page {
+  padding: 24px;
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

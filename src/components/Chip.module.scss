@@ -1,0 +1,35 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+
+  padding: 6px 8px;
+  border-radius: 8px;
+  height: 20px;
+
+  background-color: var(--background-fill-interactive);
+  color: var(--content-inverted);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .label {
+    display: inline-block;
+  }
+  &--selected {
+    background-color: var(--background-fill-inverted); // ✅ 클릭 시 반전 배경
+    color: var(--content-inverted);
+
+    .icon {
+      filter: brightness(0) invert(1); // 아이콘도 반전
+    }
+  }
+}
