@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./PlaceCard.scss";
+import "./_placeCard.scss";
 
 const PlaceCard = ({
   title,

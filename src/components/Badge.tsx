@@ -2,7 +2,7 @@ import "./_badge.scss";
 import classNames from "classnames";
 
 interface BadgeProps {
-  type?: "default" | "brand" | "danger";
+  type?: "default" | "complete" | "waiting";
   label: string;
 }
 
