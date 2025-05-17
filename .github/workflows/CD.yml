@@ -34,6 +34,10 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
 
+      # teame-be가 실행중인 경우 중지
+      - name: Stop teame-be
+        run: docker stop teame-be || true && docker rm teame-be || true
+
       # teame-fe가 실행중인 경우 중지
       - name: Stop teame-fe
         run: docker stop teame-fe || true && docker rm teame-fe || true
