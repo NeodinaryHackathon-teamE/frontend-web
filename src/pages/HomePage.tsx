@@ -1,8 +1,6 @@
+import { useState } from "react";
 import "./HomePage.scss";
-import BuildingIcon from "../assets/building.svg";
-import RoadIcon from "../assets/road.svg";
-import TreeIcon from "../assets/park.svg";
-import TrashIcon from "../assets/trashcan.svg";
+
 import SearchInput from "../components/SearchInput";
 import "./HomePage.scss";
 import BottomSheet from "@/components/BottomSheet/BottomSheet";
@@ -15,19 +13,28 @@ import Alarm from "@/components/Alarm";
 import LocationButton from "@/components/LocationButton";
 import CloseIcon from "@/assets/close.svg";
 import Chip from "@/components/Chip";
-
+import placeCardData from "@/data/data";
 import "./HomePage.scss";
 import { useBottomSheetStack } from "@/hooks/useBottomSheetStack";
 import MainScreen from "@/components/BottomSheetScreen/MainScreen";
 import ReportedScreen from "@/components/BottomSheetScreen/ReportedScreen";
+import Badge from "@/components/Badge";
+import reportedStyles from "@/components/BottomSheetScreen/ReportedScreen.module.scss";
+import LoginScreen from "@/components/BottomSheetScreen/LoginScreen";
+import SignupScreen from "@/components/BottomSheetScreen/SignupScreen";
+import ReportScreen from "@/components/BottomSheetScreen/ReportScreen";
 
 const demoScreens = [
   { name: "main", title: "메인", component: MainScreen },
   { name: "detail", title: "상세", component: ReportedScreen },
+  { name: "login", title: "로그인", component: LoginScreen },
+  { name: "signup", title: "회원가입", component: SignupScreen },
+  { name: "report", title: "제보글 작성", component: ReportScreen },
 ];
-
+type PlaceCardData = (typeof placeCardData)[number];
 const HomePage = () => {
   const { isOpen, open, close, push, pop, stack } = useBottomSheetStack();
+  const [selectedCard, setSelectedCard] = useState<PlaceCardData | null>(null);
 
   const current = stack[stack.length - 1];
   const canGoBack = stack.length > 1;
@@ -36,27 +43,63 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      <div className="card-list">
-        <SearchInput />
-      </div>
+      <SearchInput />
       <button onClick={open}>바텀 시트 열기</button>
       <BottomSheet
         isOpen={isOpen}
-        onClose={close}
+        onClose={() => {
+          close();
+          setSelectedCard(null); // 닫을 때 선택 초기화
+        }}
         onBack={canGoBack ? pop : undefined}
-        title={activeScreen?.title}
         canGoBack={canGoBack}
+        header={
+          <div className={reportedStyles.header}>
+            <span className={reportedStyles.title}>{selectedCard?.title}</span>
+            <Badge
+              type={selectedCard?.status === "waiting" ? "waiting" : "complete"}
+              label={selectedCard?.status === "waiting" ? "대기" : "완료"}
+              selected={false}
+            />
+          </div>
+        }
       >
-        {ScreenComponent && <ScreenComponent push={push} />}
+        {ScreenComponent && selectedCard && (
+          <ScreenComponent
+            push={push}
+            title={selectedCard.title}
+            address={selectedCard.address}
+            description={selectedCard.description}
+            likes={selectedCard.likes}
+            status={selectedCard.status}
+          />
+        )}
+        {current === "login" && <LoginScreen push={push} />}
+        {current === "signup" && <SignupScreen push={push} />}
       </BottomSheet>
       <Button iconOnly>
         <img src={GPS} alt="gps" />
       </Button>
       <LocationButton />
-      <Button iconOnly>
+      <Button
+        iconOnly
+        onClick={() => {
+          if (!isOpen) open();
+          setSelectedCard(null);
+          push("report");
+        }}
+      >
         <img src={Report} alt="report" />
       </Button>
-      <Button iconOnly>
+      <Button
+        iconOnly
+        onClick={() => {
+          if (!isOpen) open();
+          setSelectedCard(null);
+          push("login");
+          // 무조건 스택을 'login'으로 전환
+        }}
+      >
         <img src={Person} alt="person" />
       </Button>
       <Button iconOnly>

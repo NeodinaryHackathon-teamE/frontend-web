@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .categoryButtons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    button {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+    }
+  }
+}
+
+.imageSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .uploadBox {
+    display: flex;
+    gap: 8px;
+
+    .imagePlaceholder {
+      width: 80px;
+      height: 80px;
+      background: #f1f1f1;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
+  }
+}
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  textarea {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 12px;
+    resize: none;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
