@@ -95,20 +95,22 @@ const HomePage = () => {
         {current === 'login' && <LoginScreen push={push} />}
         {current === 'signup' && <SignupScreen push={push} />}
       </BottomSheet>
-      <Button iconOnly>
-        <img src={GPS} alt="gps" />
-      </Button>
-      <LocationButton />
-      <Button
-        iconOnly
-        onClick={() => {
-          if (!isOpen) open();
-          setSelectedCard(null);
-          push('report');
-        }}
-      >
-        <img src={Report} alt="report" />
-      </Button>
+      <div className={styles.bottom}>
+        <Button iconOnly>
+          <img src={GPS} alt="gps" />
+        </Button>
+        <LocationButton />
+        <Button
+          iconOnly
+          onClick={() => {
+            if (!isOpen) open();
+            setSelectedCard(null);
+            push('report');
+          }}
+        >
+          <img src={Report} alt="report" />
+        </Button>
+      </div>
     </div>
   );
 };
