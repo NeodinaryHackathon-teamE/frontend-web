@@ -6,7 +6,7 @@ const SearchInput = () => {
   return (
     <div className={styles["search-input"]}>
       <img src={searchIcon} alt="검색 아이콘" className="icon" />
-      <input type="text" placeholder="공덕역 명소 검색하기" />
+      <input type="text" placeholder="제보할 장소 검색하기" />
     </div>
   );
 };

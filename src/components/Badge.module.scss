@@ -26,4 +26,8 @@
     background-color: var(--background-fill-strong);
     color: var(--content-disabled);
   }
+  &--selected {
+    background-color: var(--background-fill-strong); // ✅ 선택됐을 때 배경
+    color: var(--content-elevated); // 텍스트 색도 원하면 변경
+  }
 }

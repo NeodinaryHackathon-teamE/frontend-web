@@ -4,13 +4,20 @@ import classNames from "classnames";
 interface BadgeProps {
   type?: "default" | "complete" | "waiting";
   label: string;
+  selected?: boolean;
 }
 
-const Badge = ({ type = "default", label }: BadgeProps) => {
+const Badge = ({ type = "default", label, selected = false }: BadgeProps) => {
   return (
-    <span className={classNames(styles.badge, styles[`badge--${type}`])}>
+    <div
+      className={classNames(
+        styles.badge,
+        styles[`badge--${type}`],
+        selected && styles["badge--selected"]
+      )}
+    >
       {label}
-    </span>
+    </div>
   );
 };
 

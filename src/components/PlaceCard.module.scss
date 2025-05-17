@@ -1,6 +1,6 @@
 .place-card {
   width: 169px;
-  height: 90px;
+
   padding: 6px;
   border-radius: 12px;
   box-sizing: border-box;
@@ -14,9 +14,26 @@
 
   display: flex;
   flex-direction: column;
+
   &--complete {
     background-color: var(--background-fill-interactive);
     color: var(--content-disabled);
+    .title {
+      color: var(--content-disabled) !important;
+    }
+
+    .likes {
+      color: var(--content-disabled) !important;
+
+      .like-text {
+        color: var(--content-disabled) !important;
+      }
+
+      .heart {
+        filter: brightness(0) saturate(100%) invert(40%) sepia(4%)
+          saturate(148%) hue-rotate(90deg) brightness(95%) contrast(90%);
+      }
+    }
   }
 
   .title {
@@ -53,6 +70,26 @@
     .like-text {
       font-weight: 400;
       line-height: 1;
+    }
+  }
+  &--selected {
+    background-color: #467a2c;
+    color: var(--content-elevated) !important;
+
+    .title {
+      color: var(--content-elevated) !important;
+    }
+
+    .likes {
+      color: var(--content-elevated) !important;
+
+      .like-text {
+        color: var(--content-elevated) !important;
+      }
+
+      .heart {
+        filter: brightness(0) invert(1); // 흰색처럼 보이도록 아이콘 반전
+      }
     }
   }
 }

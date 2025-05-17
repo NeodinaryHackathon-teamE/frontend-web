@@ -13,6 +13,11 @@ import Button from "@/components/Button";
 import GPS from "@/assets/gps.svg";
 import Report from "@/assets/report.svg";
 import Person from "@/assets/person.svg";
+import BackArrow from "@/assets/back-arrow.svg";
+import Alarm from "@/components/Alarm";
+import LocationButton from "@/components/LocationButton";
+import CloseIcon from "@/assets/close.svg";
+import Chip from "@/components/Chip";
 
 const HomePage = () => {
   const { isOpen, open, close } = useBottomSheet();
@@ -37,13 +42,13 @@ const HomePage = () => {
           title="도로 안전"
           icon={RoadIcon}
           likes={127}
-          status="solved"
+          status="complete"
         />
         <PlaceCard
           title="무단 투기"
           icon={TrashIcon}
           likes={127}
-          status="solved"
+          status="complete"
         />
         <SearchInput />
       </div>
@@ -56,12 +61,18 @@ const HomePage = () => {
       <Button iconOnly>
         <img src={GPS} alt="gps" />
       </Button>
+      <LocationButton />
       <Button iconOnly>
         <img src={Report} alt="report" />
       </Button>
       <Button iconOnly>
         <img src={Person} alt="person" />
       </Button>
+      <Button iconOnly>
+        <img src={BackArrow} alt="person" />
+      </Button>
+      <Alarm />
+      <Chip icon={CloseIcon} label="대기" />
     </div>
   );
 };
