@@ -9,7 +9,7 @@
   border-radius: 12px;
 
   background-color: var(--semantic-brand-regular); // 비활성화 배경
-  color: var(--sementic-brand-strong);
+  color: var(--semantic-brand-strong);
   font-size: 16px;
   font-weight: 500;
 
@@ -23,6 +23,6 @@
   }
 }
 .liked {
-  background-color: var(--sementic-brand-strong) !important; // 활성화 초록 배경
+  background-color: var(--semantic-brand-strong) !important; // 활성화 초록 배경
   color: var(--background-fill-static) !important; // 흰 글씨
 }

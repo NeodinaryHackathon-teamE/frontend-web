@@ -50,9 +50,6 @@ const Map = () => {
 
   return (
     <>
-      <span className={styles.debug}>
-        {center.lat} {center.lng}
-      </span>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
