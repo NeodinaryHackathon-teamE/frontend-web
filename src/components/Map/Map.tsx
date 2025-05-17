@@ -1,6 +1,8 @@
-import { memo, useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from '@/components/Map/Map.module.scss';
-import { GoogleMap, useJsApiLoader, MarkerF, OverlayView } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import CustomMarker from './CustomMarker';
+import { Post, getAllPostList } from '@/api';
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAP_API_KEY;
 
@@ -13,20 +15,31 @@ const containerStyle: React.CSSProperties = {
 };
 
 const center = {
-  lat: 37.5665,
-  lng: 126.978,
+  lat: 37.5350711,
+  lng: 126.9662972,
 };
 
 const Map = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: API_KEY,
   });
 
+  const fetchPosts = async () => {
+    try {
+      const postList = await getAllPostList();
+      setPosts(postList);
+    } catch (err) {
+      console.error('Error fetching posts:', err);
+    }
+  };
+
   const [map, setMap] = useState<google.maps.Map | null>(null);
 
   const onLoad = useCallback((mapInstance: google.maps.Map) => {
     setMap(mapInstance);
+    fetchPosts();
   }, []);
 
   const onUnmount = useCallback(() => {
@@ -43,7 +56,7 @@ const Map = () => {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={16}
+        zoom={14}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{
@@ -57,6 +70,15 @@ const Map = () => {
           ],
         }}
       >
+        {posts.map((post) => (
+          <CustomMarker
+            key={post.postId}
+            position={{ lat: post.latitude, lng: post.longitude }}
+            category={post.category}
+            status={post.status}
+            like={post.likeCount}
+          />
+        ))}
       </GoogleMap>
     </>
   );

@@ -1,5 +1,3 @@
-import React from "react";
-import PlaceCard from "../components/PlaceCard"; // 경로는 프로젝트 구조에 맞게 수정
 import "./HomePage.scss";
 import BuildingIcon from "../assets/building.svg";
 import RoadIcon from "../assets/road.svg";
@@ -8,7 +6,6 @@ import TrashIcon from "../assets/trashcan.svg";
 import SearchInput from "../components/SearchInput";
 import "./HomePage.scss";
 import BottomSheet from "@/components/BottomSheet/BottomSheet";
-import useBottomSheet from "../hooks/useBottomSheet";
 import Button from "@/components/Button";
 import GPS from "@/assets/gps.svg";
 import Report from "@/assets/report.svg";
@@ -39,32 +36,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      홈페이지입니다.
       <div className="card-list">
-        <PlaceCard
-          title="자연 훼손"
-          icon={TreeIcon}
-          likes={52}
-          status="waiting"
-        />
-        <PlaceCard
-          title="시설 파손"
-          icon={BuildingIcon}
-          likes={31}
-          status="waiting"
-        />
-        <PlaceCard
-          title="도로 안전"
-          icon={RoadIcon}
-          likes={127}
-          status="complete"
-        />
-        <PlaceCard
-          title="무단 투기"
-          icon={TrashIcon}
-          likes={127}
-          status="complete"
-        />
         <SearchInput />
       </div>
       <button onClick={open}>바텀 시트 열기</button>
