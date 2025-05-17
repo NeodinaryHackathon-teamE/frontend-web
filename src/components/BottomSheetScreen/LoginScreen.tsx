@@ -1,9 +1,8 @@
 import styles from "@/components/BottomSheetScreen/LoginScreen.module.scss";
-interface MainScreenProps {
+interface LoginScreenProps {
   push: (screen: string) => void;
 }
-
-const MainScreen = ({ push }: MainScreenProps) => {
+const LoginScreen = ({ push }: LoginScreenProps) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>로그인</h2>
@@ -36,4 +35,4 @@ const MainScreen = ({ push }: MainScreenProps) => {
   );
 };
 
-export default MainScreen;
+export default LoginScreen;

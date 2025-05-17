@@ -1,48 +1,50 @@
 @use "@/scss/utils/mixins" as *;
 
 .container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: var(--sementic-dim-strong);
-    z-index: 200;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--sementic-dim-strong);
+  z-index: 200;
 }
 
 .bottom-sheet {
-    position: absolute;
-    left: 0;
-    left: env(safe-area-inset-left);
-    right: 0;
-    right: env(safe-area-inset-right);
-    bottom: 0;
-    bottom: env(safe-area-inset-bottom);
-    padding-top: 10px;
-    border-radius: 16px 16px 0 0;
-    background-color: var(--background-fill-static);
-    z-index: 10;
+  position: absolute;
+  left: 0;
+  left: env(safe-area-inset-left);
+  right: 0;
+  right: env(safe-area-inset-right);
+  bottom: 0;
+  bottom: env(safe-area-inset-bottom);
+  padding-top: 10px;
+  border-radius: 16px 16px 0 0;
+  background-color: var(--background-fill-static);
+  z-index: 10;
 
-    .title {
-        display: flex;
-        padding: 13px 20px;
-        align-items: center;
+  .title {
+    display: flex;
+    padding-right: 16px;
 
-        &-text {
-            display: block;
-            flex: 1 1 auto;
-            min-width: 0;
-            font-size: 24px;
-            line-height: 34px;
+    align-items: center;
+    justify-content: space-between;
 
-            @include ellipsis;
-        }
+    &-text {
+      display: block;
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 24px;
+      line-height: 34px;
 
-        .button-close {
-            @include reset-button;
-
-            flex: 0 0 auto;
-            line-height: 1px;
-        }
+      @include ellipsis;
     }
+
+    .button-close {
+      @include reset-button;
+
+      flex: 0 0 auto;
+      line-height: 1px;
+    }
+  }
 }

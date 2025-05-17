@@ -10,6 +10,7 @@ interface PlaceCardProps {
   status: "waiting" | "complete";
   icon: string;
   selected?: boolean;
+  onClick?: () => void;
 }
 
 const PlaceCard = ({
@@ -18,9 +19,9 @@ const PlaceCard = ({
   status,
   icon,
   selected = false,
+  onClick,
 }: PlaceCardProps) => {
   const [liked, setLiked] = useState(false);
-  const [isSelected, setIsSelected] = useState(false);
 
   // Badge에 넘길 type과 label 매핑
   const badgeType = status === "waiting" ? "waiting" : "complete";
@@ -31,19 +32,19 @@ const PlaceCard = ({
       className={classNames(
         styles["place-card"],
         status === "complete" && styles["place-card--complete"],
-        isSelected && styles["place-card--selected"]
+        selected && styles["place-card--selected"]
       )}
-      onClick={() => setIsSelected(!isSelected)}
+      onClick={onClick}
     >
       <div className={styles.title}>
         <img src={icon} alt="아이콘" className="icon" />
         <span>{title}</span>
-        <Badge type={badgeType} label={badgeLabel} selected={isSelected} />
+        <Badge type={badgeType} label={badgeLabel} selected={selected} />
       </div>
 
       <div className={styles.likes}>
         <img
-          src={isSelected ? WhiteLike : LikeIcon}
+          src={selected ? WhiteLike : LikeIcon}
           alt="좋아요"
           className="heart"
         />
