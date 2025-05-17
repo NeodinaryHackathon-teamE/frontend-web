@@ -17,13 +17,13 @@
     color: rgb(#24331d, 0.8);
   }
 
-  &--complete {
-    background-color: rgba(#467a2c, 0.08);
-    color: #467a2c;
+  &--waiting {
+    background-color: var(--sementic-danger-regular);
+    color: var(--sementic-danger-strong);
   }
 
-  &--waiting {
-    background-color: rgba(#ff244b, 0.08);
-    color: #ff244b;
+  &--complete {
+    background-color: var(--sementic-successs-regular);
+    color: var(--sementic-successs-strong);
   }
 }
