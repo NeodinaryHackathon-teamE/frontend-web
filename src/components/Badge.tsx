@@ -1,4 +1,4 @@
-import "./_badge.scss";
+import styles from "./Badge.module.scss";
 import classNames from "classnames";
 
 interface BadgeProps {
@@ -7,7 +7,11 @@ interface BadgeProps {
 }
 
 const Badge = ({ type = "default", label }: BadgeProps) => {
-  return <span className={classNames("badge", `badge--${type}`)}>{label}</span>;
+  return (
+    <span className={classNames(styles.badge, styles[`badge--${type}`])}>
+      {label}
+    </span>
+  );
 };
 
 export default Badge;

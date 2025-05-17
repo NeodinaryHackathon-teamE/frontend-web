@@ -18,12 +18,12 @@
   }
 
   &--waiting {
-    background-color: var(--sementic-danger-regular);
-    color: var(--sementic-danger-strong);
+    background-color: var(--sementic-brand-regular);
+    color: var(--sementic-brand-strong);
   }
 
   &--complete {
-    background-color: var(--sementic-successs-regular);
-    color: var(--sementic-successs-strong);
+    background-color: var(--background-fill-strong);
+    color: var(--content-disabled);
   }
 }

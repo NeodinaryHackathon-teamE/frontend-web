@@ -6,8 +6,17 @@ import RoadIcon from "../assets/road.svg";
 import TreeIcon from "../assets/park.svg";
 import TrashIcon from "../assets/trashcan.svg";
 import SearchInput from "../components/SearchInput";
+import "./HomePage.scss";
+import BottomSheet from "../components/BottomSheet";
+import useBottomSheet from "../hooks/useBottomSheet";
+import Button from "@/components/Button";
+import GPS from "@/assets/gps.svg";
+import Report from "@/assets/report.svg";
+import Person from "@/assets/person.svg";
 
 const HomePage = () => {
+  const { isOpen, open, close } = useBottomSheet();
+
   return (
     <div className="home-page">
       홈페이지입니다.
@@ -38,6 +47,21 @@ const HomePage = () => {
         />
         <SearchInput />
       </div>
+      <button onClick={open}>바텀 시트 열기</button>
+      <BottomSheet isOpen={isOpen} onClose={close}>
+        <h2>바텀 시트</h2>
+        <p>내용을 여기에 넣으세요.</p>
+        <button onClick={close}>닫기</button>
+      </BottomSheet>
+      <Button iconOnly>
+        <img src={GPS} alt="gps" />
+      </Button>
+      <Button iconOnly>
+        <img src={Report} alt="report" />
+      </Button>
+      <Button iconOnly>
+        <img src={Person} alt="person" />
+      </Button>
     </div>
   );
 };

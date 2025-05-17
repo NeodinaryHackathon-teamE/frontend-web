@@ -1,0 +1,27 @@
+.badge {
+  height: 56px;
+  width: 297px;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+
+  &--default {
+    background-color: rgb(#a0ad99, 0.08);
+    color: rgb(#24331d, 0.8);
+  }
+
+  &--waiting {
+    background-color: var(--sementic-brand-regular);
+    color: var(--sementic-brand-strong);
+  }
+
+  &--complete {
+    background-color: var(--background-fill-strong);
+    color: var(--content-disabled);
+  }
+}

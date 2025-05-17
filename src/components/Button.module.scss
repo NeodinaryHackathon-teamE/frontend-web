@@ -1,10 +1,8 @@
-@import "./variables";
-
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary-color;
+
   color: #fff;
   border: none;
   backdrop-filter: blur(8px);
@@ -47,8 +45,22 @@
   &:disabled {
     opacity: 0.32;
     background-color: rgba(#a0ad99, 0.08);
-    color: $text-color;
+    color: #000;
     cursor: not-allowed;
     pointer-events: none;
+  }
+  &--icon {
+    width: 56px;
+    height: 56px;
+    min-width: 44px;
+    padding: 16px;
+    border-radius: 12px;
+    gap: 4px;
+    background-color: var(--background-fill-interactive);
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
 }

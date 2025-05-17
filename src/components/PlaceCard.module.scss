@@ -1,9 +1,10 @@
 .place-card {
-  width: 130px;
-  height: 92px;
+  width: 169px;
+  height: 90px;
   padding: 6px;
   border-radius: 12px;
   box-sizing: border-box;
+  justify-content: center;
 
   background-color: rgba(#ffffff, 0.8);
   backdrop-filter: blur(8px);
@@ -13,24 +14,35 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  &--complete {
+    background-color: var(--background-fill-interactive);
+    color: var(--content-disabled);
+  }
 
   .title {
     display: flex;
+    align-items: center;
+    justify-content: space-between; // or flex-start if badge는 오른쪽으로 보내지 않을 경우
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 700;
     color: #000;
     gap: 4px;
-    align-items: center;
-    display: block;
   }
 
   .likes {
-    font-size: 12px;
-    color: #467a2c;
+    font-size: 14px;
+
     display: flex;
-    align-items: center;
     gap: 4px;
+    line-height: 20px;
+    color: rgba(#24331d, 0.6);
+    height: 36px;
+    align-items: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
 
     .heart {
       width: 13px;
@@ -39,12 +51,8 @@
     }
 
     .like-text {
-      color: rgba(#24331d, 0.6);
       font-weight: 400;
-
-      &.active {
-        color: #467a2c;
-      }
+      line-height: 1;
     }
   }
 }
