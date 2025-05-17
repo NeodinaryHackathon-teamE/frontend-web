@@ -5,7 +5,7 @@ import "./HomePage.scss";
 
 import SearchInput from "../components/SearchInput";
 import "./HomePage.scss";
-import BottomSheet from "../components/BottomSheet";
+import BottomSheet from "@/components/BottomSheet/BottomSheet";
 import useBottomSheet from "../hooks/useBottomSheet";
 import Button from "@/components/Button";
 import GPS from "@/assets/gps.svg";
