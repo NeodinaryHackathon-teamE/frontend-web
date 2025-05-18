@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchInput from "../components/SearchInput";
 import BottomSheet from "@/components/BottomSheet/BottomSheet";
 import Button from "@/components/Button";
@@ -78,26 +78,25 @@ const HomePage = () => {
           </div>
         }
       >
-        {current === "detail" && selectedCard && (
-          <ReportedScreen push={push} card={selectedCard} />
-        )}
         {current === "login" && <LoginScreen push={push} />}
         {current === "signup" && <SignupScreen push={push} />}
       </BottomSheet>
-      <Button iconOnly>
-        <img src={GPS} alt="gps" />
-      </Button>
-      <LocationButton />
-      <Button
-        iconOnly
-        onClick={() => {
-          if (!isOpen) open();
-          setSelectedCard(null);
-          push("report");
-        }}
-      >
-        <img src={Report} alt="report" />
-      </Button>
+      <div className={styles.bottom}>
+        <Button iconOnly>
+          <img src={GPS} alt="gps" />
+        </Button>
+        <LocationButton />
+        <Button
+          iconOnly
+          onClick={() => {
+            if (!isOpen) open();
+            setSelectedCard(null);
+            push("report");
+          }}
+        >
+          <img src={Report} alt="report" />
+        </Button>
+      </div>
       <div className={styles.bottom}>
         <Chip icon={CloseIcon} label="대기" />
       </div>

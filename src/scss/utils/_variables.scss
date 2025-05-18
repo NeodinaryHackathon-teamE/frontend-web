@@ -79,21 +79,21 @@ $color-system-black-32: rgba(#000000, 0.32);
     --content-inverted: #{$color-brand-white-100};
     --content-elevated: #{$color-system-white-100};
 
-    --sementic-brand-regular: #{$color-brand-core-8};
-    --sementic-brand-strong: #{$color-brand-core-100};
+    --semantic-brand-regular: #{$color-brand-core-8};
+    --semantic-brand-strong: #{$color-brand-core-100};
 
-    --sementic-successs-regular: #{$color-system-green-8};
-    --sementic-successs-strong: #{$color-system-green-100};
+    --semantic-successs-regular: #{$color-system-green-8};
+    --semantic-successs-strong: #{$color-system-green-100};
 
-    --sementic-warning-regular: #{$color-system-yellow-8};
-    --sementic-warning-strong: #{$color-system-yellow-100};
+    --semantic-warning-regular: #{$color-system-yellow-8};
+    --semantic-warning-strong: #{$color-system-yellow-100};
 
-    --sementic-danger-regular: #{$color-system-red-8};
-    --sementic-danger-strong: #{$color-system-red-100};
+    --semantic-danger-regular: #{$color-system-red-8};
+    --semantic-danger-strong: #{$color-system-red-100};
 
-    --sementic-dim-weak: #{$color-brand-black-8};
-    --sementic-dim-regular: #{$color-brand-black-12};
-    --sementic-dim-strong: #{$color-brand-black-20};
+    --semantic-dim-weak: #{$color-brand-black-8};
+    --semantic-dim-regular: #{$color-brand-black-12};
+    --semantic-dim-strong: #{$color-brand-black-20};
 }
 
 @media (prefers-color-scheme: dark) {
@@ -125,20 +125,20 @@ $color-system-black-32: rgba(#000000, 0.32);
         --content-inverted: #{$color-brand-black-100};
         --content-elevated: #{$color-system-white-100};
 
-        --sementic-brand-regular: #{$color-brand-core-12};
-        --sementic-brand-strong: #{$color-brand-core-100};
+        --semantic-brand-regular: #{$color-brand-core-12};
+        --semantic-brand-strong: #{$color-brand-core-100};
 
-        --sementic-successs-regular: #{$color-system-green-12};
-        --sementic-successs-strong: #{$color-system-green-100};
+        --semantic-successs-regular: #{$color-system-green-12};
+        --semantic-successs-strong: #{$color-system-green-100};
 
-        --sementic-warning-regular: #{$color-system-yellow-12};
-        --sementic-warning-strong: #{$color-system-yellow-100};
+        --semantic-warning-regular: #{$color-system-yellow-12};
+        --semantic-warning-strong: #{$color-system-yellow-100};
 
-        --sementic-danger-regular: #{$color-system-red-12};
-        --sementic-danger-strong: #{$color-system-red-100};
+        --semantic-danger-regular: #{$color-system-red-12};
+        --semantic-danger-strong: #{$color-system-red-100};
 
-        --sementic-dim-weak: #{$color-system-black-12};
-        --sementic-dim-regular: #{$color-system-black-16};
-        --sementic-dim-strong: #{$color-system-black-24};
+        --semantic-dim-weak: #{$color-system-black-12};
+        --semantic-dim-regular: #{$color-system-black-16};
+        --semantic-dim-strong: #{$color-system-black-24};
     }
 }
